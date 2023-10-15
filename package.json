@@ -19,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/Gabbydamian/encryptor_app/issues"
   },
-  "homepage": "https://github.com/Gabbydamian/encryptor_app#readme"
+  "homepage": "https://github.com/Gabbydamian/encryptor_app#readme",
+  "dependencies": {
+    "crypto-js": "^4.1.1"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  }
 }
