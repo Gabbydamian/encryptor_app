@@ -1,31 +1,17 @@
 const CryptoJS = require('crypto-js');
-const encryption_type = ['AES', 'des', 'tripledes', 'rc4', 'rabbit', 'rc2'];
+const { decrypt, encrypt } = require('./utils');
+
+const encryption_type = ['AES', 'DES', 'RD4', 'RC2'];
 const key = 'apple';
+const IV = CryptoJS.enc.Hex.parse('101112131415161718191a1b1c1d1e1f');
 
-function encrypt(text, key, type, iv) {
-  const options = { iv: iv };
-  const cipher = CryptoJS[type].encrypt(text, key, options).toString();
-  return cipher;
-}
-
-function decrypt(text, key, type, iv) {
-  const options = { iv: iv };
-  const decipher = CryptoJS[type]
-    .decrypt(text, key, options)
-    .toString(CryptoJS.enc.Utf8);
-  return decipher;
-}
-
-const iv = CryptoJS.enc.Hex.parse('101112131415161718191a1b1c1d1e1f');
-
-let txt = encrypt('Hello not World', key, encryption_type[0], iv);
+let txt = encrypt('Damian Gabriel', key, encryption_type[0], IV);
 let txt2 = decrypt(
-  txt,
+  'U2FsdGVkX1/eN1yocal7hGd8nlO9u9HQ++m8QDnUG5Y=',
   key,
   encryption_type[0],
-  iv
+  IV
 );
 
-console.log(txt2);
 console.log(txt);
-
+console.log(txt2);
