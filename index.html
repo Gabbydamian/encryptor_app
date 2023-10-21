@@ -1,122 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Encryptor</title>
-    <link rel="stylesheet" href="./dist/style.css" />
-  </head>
-  <body>
-    <header>
-      <div class="container mx-auto px-6 py-6">
-        <nav class="flex items-center justify-between">
-          <h1 class="text-3xl font-bold">Encryptor App</h1>
-          <div
-            id="social-links"
-            class="flex items-end justify-between space-x-4"
-          >
-            <a href="https://github.com/Gabbydamian">
-              <img class="w-6" src="./src/imgs/github.svg" alt="github" />
-            </a>
-            <a href="https://twitter.com/astridesigns_">
-              <img class="w-6" src="./src/imgs/twitter.svg" alt="github" />
-            </a>
-            <a href="https://github.com/Gabbydamian">
-              <img class="w-6" src="./src/imgs/linkedin-in.svg" alt="github" />
-            </a>
-          </div>
-        </nav>
-      </div>
-    </header>
-    <main>
-      <div class="container max-w-screen-lg p-4 mx-auto" id="user_input">
-        <form action="#" class="mt-12">
-          <div class="flex space-x-4">
-            <textarea
-              class="w-3/4 p-2 px-4 border rounded"
-              name="plaintext"
-              id="plaintext"
-              placeholder="Enter text to encrypt here"
-            ></textarea>
-            <div class="flex flex-col">
-              <input
-                type="text"
-                class="p-2 mb-2 border rounded"
-                placeholder="Enter secret key"
-              />
-              <button class="p-2 bg-blue-500 text-white rounded">
-                Encrypt
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
-      <h6 class="text-center text-xl my-2 mb-1">or</h6>
-      <div class="container max-w-screen-lg p-4 mx-auto" id="user_file">
-        <div
-          id="fileDrop"
-          class="bg-gray-100 p-4 py-12 border border-dashed border-gray-400 rounded text-center transition duration-300"
-        >
-          <p class="mb-4 text-gray-600">Drop your ".txt" file here or</p>
-          <input type="file" name="file_input" id="file_input" class="hidden" />
-          <label
-            for="file_input"
-            class="cursor-pointer bg-blue-500 hover:bg-blue-600 text-white py-1 px-4 rounded"
-            >Upload</label
-          >
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Encryptor</title>
+  <link rel="stylesheet" href="./dist/style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.3.0/crypto-js.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="container mx-auto px-6 py-6">
+      <nav class="flex items-center justify-between">
+        <h1 class="text-3xl font-bold">Encryptor App</h1>
+        <div id="social-links" class="flex items-end justify-between space-x-4">
+          <a href="https://github.com/Gabbydamian">
+            <img class="w-6" src="./src/imgs/github.svg" alt="github" />
+          </a>
+          <a href="https://twitter.com/astridesigns_">
+            <img class="w-6" src="./src/imgs/twitter.svg" alt="github" />
+          </a>
+          <a href="https://github.com/Gabbydamian">
+            <img class="w-6" src="./src/imgs/linkedin-in.svg" alt="github" />
+          </a>
         </div>
-      </div>
-      <div class="container max-w-screen-lg p-4 mx-auto" id="user_input">
-        <form action="#" class="mt-12">
-          <div class="flex space-x-4">
-            <textarea
-              class="w-3/4 p-2 px-4 border rounded"
-              name="ciphertext"
-              id="ciphertext"
-              placeholder="Enter cipher to decrypt here"
-            ></textarea>
-            <div class="flex flex-col">
-              <input
-                type="text"
-                class="p-2 mb-2 border rounded"
-                placeholder="Enter secret key"
-              />
-              <button class="p-2 bg-blue-500 text-white rounded">
-                Decrypt
-              </button>
-            </div>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container max-w-screen-lg p-4 mx-auto" id="user_input">
+      <form action="#" class="mt-12">
+        <div class="flex space-x-4">
+          <textarea class="w-3/4 p-2 px-4 border rounded" name="plaintext" id="plaintext"
+            placeholder="Enter text to encrypt here"></textarea>
+          <div class="flex flex-col">
+            <input type="text" class="p-2 mb-2 border rounded" placeholder="Enter secret key" />
+            <button class="p-2 bg-blue-500 text-white rounded">
+              Encrypt
+            </button>
           </div>
-        </form>
+        </div>
+      </form>
+    </div>
+    <h6 class="text-center text-xl my-2 mb-1">or</h6>
+    <div class="container max-w-screen-lg p-4 mx-auto" id="user_file">
+      <div id="fileDrop"
+        class="bg-gray-100 p-4 py-12 border border-dashed border-gray-400 rounded text-center transition duration-300">
+        <p class="mb-4 text-gray-600">Drop your ".txt" file here or</p>
+        <input type="file" name="file_input" id="file_input" class="hidden" />
+        <label for="file_input"
+          class="cursor-pointer bg-blue-500 hover:bg-blue-600 text-white py-1 px-4 rounded">Upload</label>
       </div>
-    </main>
-    <script>
-      const fileDropArea = document.getElementById('fileDrop');
+    </div>
+    <div class="container max-w-screen-lg p-4 mx-auto" id="user_input">
+      <form action="#" class="mt-12">
+        <div class="flex space-x-4">
+          <textarea class="w-3/4 p-2 px-4 border rounded" name="ciphertext" id="ciphertext"
+            placeholder="Enter cipher to decrypt here"></textarea>
+          <div class="flex flex-col">
+            <input type="text" class="p-2 mb-2 border rounded" placeholder="Enter secret key" />
+            <button class="p-2 bg-blue-500 text-white rounded">
+              Decrypt
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+  <script src="./src/index.js"></script>
+</body>
 
-      fileDropArea.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        fileDropArea.classList.add(
-          'border-solid',
-          'border-blue-600',
-          'bg-gray-200'
-        );
-      });
-
-      fileDropArea.addEventListener('dragleave', () => {
-        fileDropArea.classList.remove(
-          'border-solid',
-          'border-blue-600',
-          'bg-gray-200'
-        );
-      });
-
-      fileDropArea.addEventListener('drop', (e) => {
-        e.preventDefault();
-        fileDropArea.classList.remove(
-          'border-solid',
-          'border-blue-600',
-          'bg-gray-200'
-        );
-      });
-    </script>
-  </body>
 </html>
