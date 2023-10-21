@@ -15,3 +15,4 @@ let txt2 = decrypt(
 
 console.log(txt);
 console.log(txt2);
+//test de encriptacion
