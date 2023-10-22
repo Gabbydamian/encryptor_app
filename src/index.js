@@ -1,4 +1,4 @@
-const key = "apple";
+// const key = "apple";
 const IV = CryptoJS.enc.Hex.parse("101112131415161718191a1b1c1d1e1f");
 
 function encrypt(text, key, iv) {
