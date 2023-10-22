@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Encryptor</title>
   <link rel="stylesheet" href="./dist/style.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.3.0/crypto-js.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.3.0/crypto-js.js"></script> -->
 </head>
 
 <body>
@@ -32,11 +32,11 @@
     <div class="container max-w-screen-lg p-4 mx-auto" id="user_input">
       <form action="#" class="mt-12">
         <div class="flex space-x-4">
-          <textarea class="w-3/4 p-2 px-4 border rounded" name="plaintext" id="plaintext"
-            placeholder="Enter text to encrypt here"></textarea>
+          <input class="w-3/4 p-2 px-4 border rounded" name="plaintext" id="plainText"
+            placeholder="Enter text to encrypt here"/>
           <div class="flex flex-col">
-            <input type="text" class="p-2 mb-2 border rounded" placeholder="Enter secret key" />
-            <button class="p-2 bg-blue-500 text-white rounded">
+            <input id="encKey" type="text" class="p-2 mb-2 border rounded" placeholder="Enter secret key" />
+            <button id="encBtn" class="p-2 bg-blue-500 text-white rounded">
               Encrypt
             </button>
           </div>
@@ -56,11 +56,11 @@
     <div class="container max-w-screen-lg p-4 mx-auto" id="user_input">
       <form action="#" class="mt-12">
         <div class="flex space-x-4">
-          <textarea class="w-3/4 p-2 px-4 border rounded" name="ciphertext" id="ciphertext"
-            placeholder="Enter cipher to decrypt here"></textarea>
+          <input class="w-3/4 p-2 px-4 border rounded" name="ciphertext" id="cipText"
+          placeholder="Enter cipher to decrypt here"/>
           <div class="flex flex-col">
-            <input type="text" class="p-2 mb-2 border rounded" placeholder="Enter secret key" />
-            <button class="p-2 bg-blue-500 text-white rounded">
+            <input id="decKey" type="text" class="p-2 mb-2 border rounded" placeholder="Enter secret key" />
+            <button id="decBtn" class="p-2 bg-blue-500 text-white rounded">
               Decrypt
             </button>
           </div>
@@ -68,7 +68,42 @@
       </form>
     </div>
   </main>
+  <script src="./node_modules/crypto-js/crypto-js.js"></script>
   <script src="./src/index.js"></script>
+  <script>
+    const fileDropArea = document.getElementById('fileDrop');
+
+    fileDropArea.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      fileDropArea.classList.add(
+        'border-solid',
+        'border-blue-600',
+        'bg-gray-200'
+      );
+    });
+
+    fileDropArea.addEventListener('dragleave', () => {
+      fileDropArea.classList.remove(
+        'border-solid',
+        'border-blue-600',
+        'bg-gray-200'
+      );
+    });
+
+    fileDropArea.addEventListener('drop', (e) => {
+      e.preventDefault();
+      fileDropArea.classList.remove(
+        'border-solid',
+        'border-blue-600',
+        'bg-gray-200'
+      );
+    });
+
+    // let plnTxt = document.getElementById('plainText');
+    // plnTxtVal = plnTxt.textContent
+
+
+  </script>
 </body>
 
 </html>

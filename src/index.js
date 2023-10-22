@@ -1,37 +1,10 @@
-const fileDropArea = document.getElementById('fileDrop');
+const key = 'apple';
+const IV = CryptoJS.enc.Hex.parse('101112131415161718191a1b1c1d1e1f');
 
-fileDropArea.addEventListener('dragover', (e) => {
-  e.preventDefault();
-  fileDropArea.classList.add(
-    'border-solid',
-    'border-blue-600',
-    'bg-gray-200'
-  );
-});
-
-fileDropArea.addEventListener('dragleave', () => {
-  fileDropArea.classList.remove(
-    'border-solid',
-    'border-blue-600',
-    'bg-gray-200'
-  );
-});
-
-fileDropArea.addEventListener('drop', (e) => {
-  e.preventDefault();
-  fileDropArea.classList.remove(
-    'border-solid',
-    'border-blue-600',
-    'bg-gray-200'
-  );
-});
-
-
-
-function encrypt(text, key, type, iv) {
+function encrypt(text, key, iv) {
   const options = { iv: iv };
   try {
-    const cipher = CryptoJS[type].encrypt(text, key, options).toString();
+    const cipher = CryptoJS.AES.encrypt(text, key, options).toString();
     return cipher;
   } catch (error) {
     console.log('Encryption failed:', error.message);
@@ -39,10 +12,10 @@ function encrypt(text, key, type, iv) {
 }
 
 
-function decrypt(text, key, type, iv) {
+function decrypt(text, key, iv) {
   const options = { iv: iv };
   try {
-    const decipher = CryptoJS[type]
+    const decipher = CryptoJS.AES
       .decrypt(text, key, options)
       .toString(CryptoJS.enc.Utf8);
     return decipher;
@@ -51,17 +24,39 @@ function decrypt(text, key, type, iv) {
   }
 }
 
-const encryption_type = ['AES', 'DES', 'RD4', 'RC2'];
-const key = 'apple';
-const IV = CryptoJS.enc.Hex.parse('101112131415161718191a1b1c1d1e1f');
 
-let txt = encrypt('Damian Gabriel', key, encryption_type[0], IV);
-let txt2 = decrypt(
-  'U2FsdGVkX1/eN1yocal7hGd8nlO9u9HQ++m8QDnUG5Y=',
-  key,
-  encryption_type[0],
-  IV
-);
 
-console.log(txt);
-console.log(txt2);
+
+// let txt = encrypt('Damian Gabriel', key, IV);
+// let txt2 = decrypt(
+//   txt,
+//   key,
+//   IV
+// );
+
+// console.log(txt);
+// console.log(txt2);
+
+const input1 = document.getElementById('plainText');
+const input2 = document.getElementById('cipText');
+const encBtn = document.getElementById('encBtn');
+const decBtn = document.getElementById('decBtn');
+const encKey = document.getElementById('enckey');
+const decKey = document.getElementById('decKey');
+
+
+encBtn.addEventListener('click', (e) =>{
+  e.preventDefault()
+  let usrInp = input1.value;
+  let cipher = encrypt(usrInp, key, IV);
+  input2.value = cipher;
+  console.log('Cipher:', cipher);
+})
+
+
+decBtn.addEventListener('click', (e)=>{
+  e.preventDefault()
+  let cip = input2.value;
+  let plntxt = decrypt(cip, key, IV);
+  console.log(plntxt);
+})
