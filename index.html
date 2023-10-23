@@ -5,14 +5,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Encryptor</title>
+  <link rel="icon" href="./myicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="./dist/style.css" />
 </head>
 
 <body>
   <header>
     <div class="container mx-auto px-6 py-6">
-      <nav class="flex items-center justify-between">
-        <h1 class="text-3xl font-bold">Encryptor App</h1>
+      <nav class="flex items-center justify-between px-12">
+        <a href="./index.html" class="flex items-center gap-2">
+          <img class="w-7 mt-1" src="./src/imgs/encrypt-logo.png" alt="encrypt.logo">
+          <h1 class="text-3xl font-bold">Encryptor App</h1>
+        </a>
         <div id="social-links" class="flex items-end justify-between space-x-4">
           <a href="https://github.com/Gabbydamian">
             <img class="w-6" src="./src/imgs/github.svg" alt="github" />
@@ -67,7 +71,7 @@
       </form>
     </div>
   </main>
-  <!-- <script src="./node_modules/crypto-js/crypto-js.js"></script> -->
+  <script src="./node_modules/crypto-js/crypto-js.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.3.0/crypto-js.js"></script>
   <script src="./src/index.js"></script>
   <script>

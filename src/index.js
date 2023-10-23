@@ -1,4 +1,9 @@
-// const key = "apple";
+const input1 = document.getElementById("plainText");
+const input2 = document.getElementById("cipText");
+const encBtn = document.getElementById("encBtn");
+const decBtn = document.getElementById("decBtn");
+const encKey = document.getElementById("encKey");
+const decKey = document.getElementById("decKey");
 const IV = CryptoJS.enc.Hex.parse("101112131415161718191a1b1c1d1e1f");
 
 function encrypt(text, key, iv) {
@@ -23,22 +28,6 @@ function decrypt(text, key, iv) {
   }
 }
 
-// let txt = encrypt('Damian Gabriel', key, IV);
-// let txt2 = decrypt(
-//   txt,
-//   key,
-//   IV
-// );
-
-// console.log(txt);
-// console.log(txt2);
-
-const input1 = document.getElementById("plainText");
-const input2 = document.getElementById("cipText");
-const encBtn = document.getElementById("encBtn");
-const decBtn = document.getElementById("decBtn");
-const encKey = document.getElementById("encKey");
-const decKey = document.getElementById("decKey");
 
 
 let encKeyVal, decKeyVal;
@@ -59,6 +48,7 @@ decBtn.addEventListener("click", (e) => {
   decKeyVal = decKey.value;
 
   let plntxt = decrypt(cip, decKeyVal, IV);
-  input1.value = plntxt;
+  plntxt.length != 0 ? input1.value = plntxt : console.log('Use the correct key');
+  
   console.log(plntxt);
 });
