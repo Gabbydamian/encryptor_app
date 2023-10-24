@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="An App to encrypt text and send secret messages to your friends">
+  <meta name="keywords" content="encrypt, gabriel, damian, decrypt">
   <title>Encryptor</title>
   <link rel="icon" href="./myicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="./dist/style.css" />
@@ -11,21 +13,21 @@
 
 <body>
   <header>
-    <div class="container mx-auto px-6 py-6">
-      <nav class="flex items-center justify-between px-12">
+    <div class="container mx-auto md:px-6 py-6">
+      <nav class="flex items-center justify-between md:px-12 px-6">
         <a href="./index.html" class="flex items-center gap-2">
           <img class="w-7 mt-1" src="./src/imgs/encrypt-logo.png" alt="encrypt.logo">
           <h1 class="text-3xl font-bold">Encryptor App</h1>
         </a>
-        <div id="social-links" class="flex items-end justify-between space-x-4">
+        <div id="social-links" class="flex items-end justify-between md:space-x-4 space-x-2">
           <a href="https://github.com/Gabbydamian">
-            <img class="w-6" src="./src/imgs/github.svg" alt="github" />
+            <img class=" w-4 md:w-6" src="./src/imgs/github.svg" alt="github" />
           </a>
           <a href="https://twitter.com/astridesigns_">
-            <img class="w-6" src="./src/imgs/twitter.svg" alt="github" />
+            <img class=" w-4 md:w-6" src="./src/imgs/twitter.svg" alt="github" />
           </a>
-          <a href="https://github.com/Gabbydamian">
-            <img class="w-6" src="./src/imgs/linkedin-in.svg" alt="github" />
+          <a href="hhttps://www.linkedin.com/in/gabriel-damian-43309423b/">
+            <img class=" w-4 md:w-6" src="./src/imgs/linkedin-in.svg" alt="linkedin" />
           </a>
         </div>
       </nav>
@@ -35,9 +37,9 @@
     <div class="container max-w-screen-lg p-4 mx-auto" id="user_input">
       <form action="#" class="mt-12">
         <div class="flex space-x-4">
-          <input class="w-3/4 p-2 px-4 border rounded" name="plaintext" id="plainText"
+          <input class="w-3/5 md:w-3/4 p-2 px-4 border rounded" name="plaintext" id="plainText"
             placeholder="Enter text to encrypt here"/>
-          <div class="flex flex-col">
+          <div class="w-2/5 md:w-auto flex flex-col">
             <input id="encKey" type="text" class="p-2 mb-2 border rounded" placeholder="Enter secret key" />
             <button id="encBtn" class="p-2 bg-blue-500 text-white rounded">
               Encrypt
@@ -57,11 +59,11 @@
       </div>
     </div>
     <div class="container max-w-screen-lg p-4 mx-auto" id="user_input">
-      <form action="#" class="mt-12">
+      <form action="#" class="mt-8">
         <div class="flex space-x-4">
-          <input class="w-3/4 p-2 px-4 border rounded" name="ciphertext" id="cipText"
+          <input class="w-3/5 md:w-3/4 p-2 px-4 border rounded" name="ciphertext" id="cipText"
           placeholder="Enter cipher to decrypt here"/>
-          <div class="flex flex-col">
+          <div class="w-2/5 md:w-auto flex flex-col">
             <input id="decKey" type="text" class="p-2 mb-2 border rounded" placeholder="Enter secret key" />
             <button id="decBtn" class="p-2 bg-blue-500 text-white rounded">
               Decrypt
