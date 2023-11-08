@@ -1,10 +1,30 @@
 const input1 = document.getElementById("plainText");
-const input2 = document.getElementById("cipText");
 const encBtn = document.getElementById("encBtn");
-const decBtn = document.getElementById("decBtn");
 const encKey = document.getElementById("encKey");
-const decKey = document.getElementById("decKey");
+const output = document.getElementById("output");
+const switchBtn = document.getElementById("switchAction");
 const IV = CryptoJS.enc.Hex.parse("101112131415161718191a1b1c1d1e1f");
+let encKeyVal;
+let isEnc = true;
+
+switchBtn.addEventListener('click', () => {
+  isEnc = !isEnc;
+  if (isEnc) {
+    switchBtn.innerText = "Have a cipher? Decrypt here!";
+    input1.value = '';
+    encKey.value = ''
+    encBtn.innerText = 'Encrypt'
+    output.innerHTML = ''
+    input1.placeholder = 'Enter text to encrypt here'
+  } else {
+    switchBtn.innerText = "Switch to Encryption";
+    input1.value = '';
+    encKey.value = ''
+    output.innerHTML = ''
+    encBtn.innerText = 'Decrypt'
+    input1.placeholder = 'Enter text to decrypt here'
+  }
+});
 
 function encrypt(text, key, iv) {
   const options = { iv: iv };
@@ -19,36 +39,24 @@ function encrypt(text, key, iv) {
 function decrypt(text, key, iv) {
   const options = { iv: iv };
   try {
-    const decipher = CryptoJS.AES.decrypt(text, key, options).toString(
-      CryptoJS.enc.Utf8
-    );
+    const decipher = CryptoJS.AES.decrypt(text, key, options).toString(CryptoJS.enc.Utf8);
     return decipher;
   } catch (error) {
     console.log("Decryption failed:", error.message);
   }
 }
 
-
-
-let encKeyVal, decKeyVal;
-
 encBtn.addEventListener("click", (e) => {
   e.preventDefault();
+
   let usrInp = input1.value;
   encKeyVal = encKey.value;
-  let cipher = encrypt(usrInp, encKeyVal, IV);
-  input2.value = cipher;
-  console.log("Cipher:", cipher);
-  console.log("EncKey:", encKeyVal);
-});
-
-decBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  let cip = input2.value;
-  decKeyVal = decKey.value;
-
-  let plntxt = decrypt(cip, decKeyVal, IV);
-  plntxt.length != 0 ? input1.value = plntxt : console.log('Use the correct key');
   
-  console.log(plntxt);
+  let result;
+  if (isEnc) {
+    result = encrypt(usrInp, encKeyVal, IV);
+  } else {
+    result = decrypt(usrInp, encKeyVal, IV);
+  }
+  output.innerHTML = result;
 });
