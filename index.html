@@ -9,6 +9,8 @@
   <title>Encryptor</title>
   <link rel="icon" href="./myicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="./dist/style.css" />
+  <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
 <body>
@@ -21,13 +23,13 @@
         </a>
         <div id="social-links" class="flex items-end justify-between space-x-4">
           <a target="_blank" href="https://github.com/Gabbydamian">
-            <img class="w-6" src="./src/imgs/github.svg" alt="github" />
+            <i class="text-2xl bi bi-github"></i>
           </a>
           <a target="_blank" href="https://twitter.com/astridesigns_">
-            <img class="w-6" src="./src/imgs/twitter.svg" alt="github" />
+            <i class="bi bi-twitter-x text-2xl"></i>
           </a>
           <a target="_blank" href="https://www.linkedin.com/in/gabriel-damian-43309423b/">
-            <img class="w-6" src="./src/imgs/linkedin-in.svg" alt="linkedin" />
+            <i class="bi bi-linkedin text-2xl"></i>
           </a>
         </div>
       </nav>
@@ -37,80 +39,33 @@
     <div class="container max-w-screen-lg px-10 mx-auto" id="user_input">
       <form action="#" class="mt-12">
         <div class="flex flex-col md:flex-row md:space-x-4 space-y-4">
-          <input autofocus class="w-full h-32 md:w-3/4 p-2 px-4 border rounded " name="plaintext" id="plainText"
+          <input autofocus required class="w-full h-32 md:w-3/4 p-2 px-4 border rounded" name="plaintext" id="plainText"
             placeholder="Enter text to encrypt here" />
           <div class="w-full md:w-2/5  flex flex-col">
             <input id="encKey" type="text" class="p-2 mb-2 border rounded" placeholder="Enter secret key" />
-            <button id="encBtn" class="p-2 bg-blue-500 text-white rounded">
+            <button id="encBtn" class="p-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition-all">
               Encrypt
             </button>
           </div>
         </div>
       </form>
     </div>
-    <div class="container max-w-screen-lg px-10 mx-auto" >
-      <div id="output" class="bg-gray-100 p-4 py-12 border border-gray-400 rounded mt-10 h-32 md:h-36 overflow-hidden whitespace-normal">
-      </div>
-      <p id="switchAction" class="text-center text-blue-500 font-medium mt-3 cursor-pointer hover:text-blue-900 transition-all">Have a cipher? Decrypt here!</p>
+    <div class="container max-w-screen-lg px-10 mx-auto relative">
+      <textarea id="output"
+        class="bg-gray-100 p-2 py-6 border border-gray-400 rounded mt-10 h-32 md:h-36 w-full whitespace-normal">
+      </textarea>
+      <button id="copyBtn">
+        <i class="bi bi-clipboard absolute top-12 right-14 text-gray-600 text-xl hover:text-blue-700 transition-all"></i>
+      </button>
+      <p id="switchAction"
+        class="text-center text-blue-500 font-medium mt-3 cursor-pointer hover:text-blue-900 transition-all">Have a
+        cipher? Decrypt here!</p>
     </div>
-    <!-- <h6 class="text-center text-xl my-2 mb-1">or</h6>
-    <div class="container max-w-screen-lg p-4 mx-auto" id="user_file">
-      <div id="fileDrop"
-        class="bg-gray-100 p-4 py-12 border border-dashed border-gray-400 rounded text-center transition duration-300">
-        <p class="mb-4 text-gray-600">Drop your ".txt" file here or</p>
-        <input type="file" name="file_input" id="file_input" class="hidden" />
-        <label for="file_input"
-          class="cursor-pointer bg-blue-500 hover:bg-blue-600 text-white py-1 px-4 rounded">Upload</label>
-      </div>
-    </div> -->
-    <!-- <div class="container max-w-screen-lg p-4 mx-auto" id="user_input">
-      <form action="#" class="mt-8">
-        <div class="flex space-x-4">
-          <input class="w-3/5 md:w-3/4 p-2 px-4 border rounded" name="ciphertext" id="cipText"
-          placeholder="Enter cipher to decrypt here"/>
-          <div class="w-2/5 md:w-auto flex flex-col">
-            <input id="decKey" type="text" class="p-2 mb-2 border rounded" placeholder="Enter secret key" />
-            <button id="decBtn" class="p-2 bg-blue-500 text-white rounded">
-              Decrypt
-            </button>
-          </div>
-        </div>
-      </form>
-    </div> -->
   </main>
   <script src="./node_modules/crypto-js/crypto-js.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.3.0/crypto-js.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <script src="./src/index.js"></script>
-  <script>
-    // const fileDropArea = document.getElementById('fileDrop');
-
-    // fileDropArea.addEventListener('dragover', (e) => {
-    //   e.preventDefault();
-    //   fileDropArea.classList.add(
-    //     'border-solid',
-    //     'border-blue-600',
-    //     'bg-gray-200'
-    //   );
-    // });
-
-    // fileDropArea.addEventListener('dragleave', () => {
-    //   fileDropArea.classList.remove(
-    //     'border-solid',
-    //     'border-blue-600',
-    //     'bg-gray-200'
-    //   );
-    // });
-
-    // fileDropArea.addEventListener('drop', (e) => {
-    //   e.preventDefault();
-    //   fileDropArea.classList.remove(
-    //     'border-solid',
-    //     'border-blue-600',
-    //     'bg-gray-200'
-    //   );
-    // });
-
-  </script>
 </body>
 
 </html>
