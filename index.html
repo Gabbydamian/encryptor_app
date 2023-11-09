@@ -5,12 +5,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="An App to encrypt text and send secret messages to your friends">
-  <meta name="keywords" content="encrypt, gabriel, damian, decrypt">
+  <meta name="keywords" content="encrypt, gabriel, damian, decrypt, github, encryptor">
   <title>Encryptor</title>
   <link rel="icon" href="./myicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="./dist/style.css" />
-  <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+  <!-- <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css"> -->
+  <!-- <link rel="stylesheet" href="./node_modules/toastify-js/src/toastify.css"> -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+  <link rel="stylesheet" href="./dist/style.css" />
 </head>
 
 <body>
@@ -23,13 +26,13 @@
         </a>
         <div id="social-links" class="flex items-end justify-between space-x-4">
           <a target="_blank" href="https://github.com/Gabbydamian">
-            <i class="text-2xl bi bi-github"></i>
+            <i class="text-2xl bi bi-github hover:text-blue-400 transition-all"></i>
           </a>
           <a target="_blank" href="https://twitter.com/astridesigns_">
-            <i class="bi bi-twitter-x text-2xl"></i>
+            <i class="bi bi-twitter text-2xl hover:text-blue-400 transition-all"></i>
           </a>
           <a target="_blank" href="https://www.linkedin.com/in/gabriel-damian-43309423b/">
-            <i class="bi bi-linkedin text-2xl"></i>
+            <i class="bi bi-linkedin text-2xl hover:text-blue-400 transition-all"></i>
           </a>
         </div>
       </nav>
@@ -52,19 +55,24 @@
     </div>
     <div class="container max-w-screen-lg px-10 mx-auto relative">
       <textarea id="output"
-        class="bg-gray-100 p-2 py-6 border border-gray-400 rounded mt-10 h-32 md:h-36 w-full whitespace-normal">
+        class="bg-gray-100 p-4 py-6 border border-gray-400 rounded mt-10 h-32 md:h-36 w-full whitespace-normal">
       </textarea>
       <button id="copyBtn">
-        <i class="bi bi-clipboard absolute top-12 right-14 text-gray-600 text-xl hover:text-blue-700 transition-all"></i>
+        <i
+          class="bi bi-clipboard absolute top-12 right-14 text-gray-600 text-xl hover:text-blue-700 transition-all"></i>
       </button>
       <p id="switchAction"
         class="text-center text-blue-500 font-medium mt-3 cursor-pointer hover:text-blue-900 transition-all">Have a
         cipher? Decrypt here!</p>
     </div>
   </main>
-  <script src="./node_modules/crypto-js/crypto-js.js"></script>
+  <!-- <script src="./node_modules/crypto-js/crypto-js.js"></script> -->
+  <!-- <script src="./node_modules/toastify-js/src/toastify.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.3.0/crypto-js.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
   <script src="./src/index.js"></script>
 </body>
 
