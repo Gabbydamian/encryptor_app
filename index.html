@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="An App to encrypt text and send secret messages to your friends">
-  <meta name="keywords" content="encrypt, gabriel, damian, decrypt, github, encryptor">
+  <meta name="keywords" content="encrypt app, gabriel, damian, decrypt, github, encryptor">
   <title>Encryptor</title>
   <link rel="icon" href="./myicon.ico" type="image/x-icon">
   <!-- <link rel="stylesheet" href="./node_modules/toastify-js/src/toastify.css"> -->
@@ -18,18 +18,18 @@
   <header>
     <div class="container mx-auto md:px-6 py-6">
       <nav class="flex items-center justify-between md:px-12 px-6">
-        <a href="./index.html" class="flex items-center gap-2">
+        <a href="./index.html" class="flex items-center gap-2" aria-label="home">
           <img class="w-7 mt-1" src="./src/imgs/encrypt-logo.png" alt="encrypt.logo">
           <h1 class="text-2xl md:text-3xl font-bold">Encryptor App</h1>
         </a>
         <div id="social-links" class="flex items-end justify-between space-x-4">
-          <a target="_blank" href="https://github.com/Gabbydamian">
+          <a target="_blank" href="https://github.com/Gabbydamian" aria-label="see github">
             <i class="text-2xl icon-github hover:text-blue-700 transition-all"></i>
           </a>
-          <a target="_blank" href="https://twitter.com/astridesigns_">
+          <a target="_blank" href="https://twitter.com/astridesigns_" aria-label="see twitter">
             <i class="icon-twitter-x text-2xl hover:text-blue-700 transition-all"></i>
           </a>
-          <a target="_blank" href="https://www.linkedin.com/in/gabriel-damian-43309423b/">
+          <a target="_blank" href="https://www.linkedin.com/in/gabriel-damian-43309423b/" aria-label="see linkedin">
             <i class="icon-linkedin text-2xl hover:text-blue-700 transition-all"></i>
           </a>
         </div>
@@ -41,10 +41,10 @@
       <form action="#" class="mt-12">
         <div class="flex flex-col md:flex-row md:space-x-4 space-y-4">
           <input autofocus required class="w-full h-32 md:w-3/4 p-2 px-4 border rounded" name="plaintext" id="plainText"
-            placeholder="Enter text to encrypt here" />
+          placeholder="Enter text to encrypt here" aria-label="Enter Phrase Text"/>
           <div class="w-full md:w-2/5  flex flex-col">
-            <input id="encKey" type="text" class="p-2 mb-2 border rounded" placeholder="Enter secret key" />
-            <button id="encBtn" class="p-2 bg-blue-800 text-white rounded hover:bg-blue-500 transition-all">
+            <input id="encKey" type="text" class="p-2 mb-2 border rounded" placeholder="Enter secret key" aria-label="Enter Secret Key"/>
+            <button id="encBtn" class="p-2 bg-blue-800 text-white rounded hover:bg-blue-500 transition-all" aria-label="Encrypt">
               Encrypt
             </button>
           </div>
@@ -53,9 +53,9 @@
     </div>
     <div class="container max-w-screen-lg px-10 mx-auto relative">
       <textarea id="output"
-        class="bg-gray-100 p-4 py-6 border border-gray-400 rounded mt-10 h-32 md:h-36 w-full whitespace-normal">
+        class="bg-gray-100 p-4 py-6 border border-gray-400 rounded mt-10 h-32 md:h-36 w-full whitespace-normal" aria-label="output">
       </textarea>
-      <button id="copyBtn">
+      <button id="copyBtn" aria-label="Copy output text">
         <i
           class="icon-clipboard absolute top-12 right-14 text-gray-600 text-xl hover:text-blue-800 transition-all"></i>
       </button>
