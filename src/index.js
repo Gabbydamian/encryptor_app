@@ -56,14 +56,14 @@ function decrypt(text, key, iv) {
 encBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  let usrInp = input1.value;
-  encKeyVal = encKey.value;
+  let usrInp = input1.value.trim();
+  encKeyVal = encKey.value.trim();
 
   let result;
   if (isEnc) {
-    result = encrypt(usrInp, encKeyVal, IV);
+    result = encrypt(usrInp, encKeyVal='default_key', IV);
   } else {
-    result = decrypt(usrInp, encKeyVal, IV);
+    result = decrypt(usrInp, encKeyVal='default_key', IV);
   }
   output.innerHTML = result;
 });
@@ -74,7 +74,7 @@ copyBtn.addEventListener('click', ()=>{
   try {
     document.execCommand('copy')
     Toastify({
-      text: "Copied",
+      text: "Copied phrase to clipboard",
       duration: 2000,
       position: "center"
       }).showToast();      
