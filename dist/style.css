@@ -609,6 +609,14 @@ video {
   margin-top: 0.75rem;
 }
 
+.mt-14 {
+  margin-top: 3.5rem;
+}
+
+.mt-16 {
+  margin-top: 4rem;
+}
+
 .flex {
   display: flex;
 }
@@ -792,9 +800,23 @@ video {
   color: rgb(30 58 138 / var(--tw-text-opacity));
 }
 
+@media (min-width: 640px) {
+  .sm\:mt-24 {
+    margin-top: 6rem;
+  }
+}
+
 @media (min-width: 768px) {
   .md\:mt-24 {
     margin-top: 6rem;
+  }
+
+  .md\:mt-2 {
+    margin-top: 0.5rem;
+  }
+
+  .md\:mt-28 {
+    margin-top: 7rem;
   }
 
   .md\:h-36 {
@@ -827,5 +849,10 @@ video {
   .md\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 }

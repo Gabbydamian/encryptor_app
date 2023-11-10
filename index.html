@@ -8,12 +8,12 @@
   <meta name="keywords" content="encrypt, gabriel, damian, decrypt, github, encryptor">
   <title>Encryptor</title>
   <link rel="icon" href="./myicon.ico" type="image/x-icon">
-  <!-- <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css"> -->
-  <!-- <link rel="stylesheet" href="./node_modules/toastify-js/src/toastify.css"> -->
+  <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./node_modules/toastify-js/src/toastify.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
     integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
-  <link rel="stylesheet" href="./dist/style.css" />
+  <link rel="stylesheet" href="./dist/style.min.css" />
 </head>
 
 <body>
@@ -22,7 +22,7 @@
       <nav class="flex items-center justify-between md:px-12 px-6">
         <a href="./index.html" class="flex items-center gap-2">
           <img class="w-7 mt-1" src="./src/imgs/encrypt-logo.png" alt="encrypt.logo">
-          <h1 class="text-3xl font-bold">Encryptor App</h1>
+          <h1 class="text-2xl md:text-3xl font-bold">Encryptor App</h1>
         </a>
         <div id="social-links" class="flex items-end justify-between space-x-4">
           <a target="_blank" href="https://github.com/Gabbydamian">
@@ -38,7 +38,7 @@
       </nav>
     </div>
   </header>
-  <main class="mt-10 md:mt-24">
+  <main class="mt-16 sm:mt-24 md:mt-28">
     <div class="container max-w-screen-lg px-10 mx-auto" id="user_input">
       <form action="#" class="mt-12">
         <div class="flex flex-col md:flex-row md:space-x-4 space-y-4">
@@ -66,14 +66,11 @@
         cipher? Decrypt here!</p>
     </div>
   </main>
-  <!-- <script src="./node_modules/crypto-js/crypto-js.js"></script> -->
-  <!-- <script src="./node_modules/toastify-js/src/toastify.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.3.0/crypto-js.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-  <script src="./src/index.js"></script>
+  <script src="./node_modules/crypto-js/crypto-js.js"></script>
+  <script src="./node_modules/toastify-js/src/toastify.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.3.0/crypto-js.js" defer></script> -->
+  <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script> -->
+  <script src="./dist/index.min.js" defer></script>
 </body>
 
 </html>
