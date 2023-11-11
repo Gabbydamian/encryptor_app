@@ -576,37 +576,12 @@ video {
   position: relative;
 }
 
-.inset-x-\[-999px\] {
-  left: -999px;
-  right: -999px;
-}
-
 .right-14 {
   right: 3.5rem;
 }
 
 .top-12 {
   top: 3rem;
-}
-
-.left-\[-999px\] {
-  left: -999px;
-}
-
-.left-\[999px\] {
-  left: 999px;
-}
-
-.left-\[9990px\] {
-  left: 9990px;
-}
-
-.left-\[9px\] {
-  left: 9px;
-}
-
-.left-\[\] {
-  left: ;
 }
 
 .mx-auto {
