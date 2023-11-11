@@ -8,11 +8,11 @@
   <meta name="keywords" content="encrypt app, gabriel, damian, decrypt, github, encryptor">
   <title>Encryptor</title>
   <link rel="icon" href="./myicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="./node_modules/toastify-js/src/toastify.css">
+  <!-- <link rel="stylesheet" href="./node_modules/toastify-js/src/toastify.css"> -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <link rel="stylesheet" href="./src/fontello/bi-icons.css">
-  <!-- <link rel="stylesheet" href="./dist/style.min.css" /> -->
-  <link rel="stylesheet" href="./dist/style.css">
+  <link rel="stylesheet" href="./dist/style.min.css" />
+  <!-- <link rel="stylesheet" href="./dist/style.css"> -->
 </head>
 
 <body>
@@ -42,10 +42,12 @@
       <form action="#" class="mt-12">
         <div class="flex flex-col md:flex-row md:space-x-4 space-y-4">
           <input autofocus required class="w-full h-32 md:w-3/4 p-2 px-4 border rounded" name="plaintext" id="plainText"
-          placeholder="Enter text to encrypt here" aria-label="Enter Phrase Text"/>
+            placeholder="Enter text to encrypt here" aria-label="Enter Phrase Text" />
           <div class="w-full md:w-2/5  flex flex-col">
-            <input id="encKey" type="text" class="p-2 mb-2 border rounded" placeholder="Enter secret key" aria-label="Enter Secret Key"/>
-            <button id="encBtn" class="p-2 bg-blue-800 text-white rounded hover:bg-blue-500 transition-all" aria-label="Encrypt">
+            <input id="encKey" type="text" class="p-5 mb-2 border rounded h-3" placeholder="Enter secret key"
+              aria-label="Enter Secret Key" />
+            <button id="encBtn" class="p-2 bg-blue-800 text-white rounded hover:bg-blue-500 transition-all"
+              aria-label="Encrypt">
               Encrypt
             </button>
           </div>
@@ -54,23 +56,23 @@
     </div>
     <div class="container max-w-screen-lg px-10 mx-auto relative">
       <textarea id="output"
-        class="bg-gray-100 p-4 py-6 border border-gray-400 rounded mt-10 h-32 md:h-36 w-full whitespace-normal" aria-label="output">
+        class="bg-gray-100 p-4 py-6 border border-gray-400 rounded mt-10 h-32 md:h-36 w-full whitespace-normal"
+        aria-label="output">
       </textarea>
       <button id="copyBtn" aria-label="Copy output text">
-        <i
-          class="icon-clipboard absolute top-12 right-14 text-gray-600 text-xl hover:text-blue-800 transition-all"></i>
+        <i class="icon-clipboard absolute top-12 right-14 text-gray-600 text-xl hover:text-blue-800 transition-all"></i>
       </button>
       <p id="switchAction"
         class="text-center text-blue-800 font-semibold mt-3 cursor-pointer hover:text-blue-500 transition-all">Have a
         cipher? Decrypt here!</p>
     </div>
   </main>
-  <script src="./node_modules/crypto-js/crypto-js.js"></script>
-  <script src="./node_modules/toastify-js/src/toastify.js"></script>
+  <!-- <script src="./node_modules/crypto-js/crypto-js.js"></script> -->
+  <!-- <script src="./node_modules/toastify-js/src/toastify.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.3.0/crypto-js.js" defer></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
-  <!-- <script src="./dist/index.min.js" defer></script> -->
-  <script src="./src/index.js"></script>
+  <script src="./dist/index.min.js" defer></script>
+  <!-- <script src="./src/index.js"></script> -->
 </body>
 
 </html>
