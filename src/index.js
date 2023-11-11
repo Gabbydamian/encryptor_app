@@ -30,14 +30,14 @@ switchBtn.addEventListener("click", () => {
 function encrypt(text, key, iv) {
   const options = { iv: iv };
   try {
-    if (text != "" && key != "") {
-      const cipher = CryptoJS.AES.encrypt(text, key, options).toString();
-      return cipher;
-    } else {
-      console.log("Empty string");
-    }
+    const cipher = CryptoJS.AES.encrypt(text, key, options).toString();
+    return cipher;
   } catch (error) {
-    console.log("Encryption failed:", error.message);
+    Toastify({
+      text: "Something went wrong while encrypting:(",
+      duration: 2000,
+      position: "center",
+    }).showToast();
   }
 }
 
@@ -49,7 +49,11 @@ function decrypt(text, key, iv) {
     );
     return decipher;
   } catch (error) {
-    console.log("Decryption failed:", error.message);
+    Toastify({
+      text: "Something went wrong during decryption:(",
+      duration: 2000,
+      position: "center",
+    }).showToast();
   }
 }
 
@@ -58,30 +62,57 @@ encBtn.addEventListener("click", (e) => {
 
   let usrInp = input1.value.trim();
   encKeyVal = encKey.value.trim();
-
   let result;
+
+  let key = encKeyVal ? encKeyVal : "default_key";
+
   if (isEnc) {
-    result = encrypt(usrInp, encKeyVal='default_key', IV);
+    if (usrInp === "") {
+      // input1.classList.remove('shake')
+      Toastify({
+        text: "Provide Text to Encrypt",
+        duration: 2000,
+        position: "center",
+      }).showToast();
+      result = "";
+    } else {
+      result = encrypt(usrInp, key, IV);
+    }
+    console.log(result);
   } else {
-    result = decrypt(usrInp, encKeyVal='default_key', IV);
+    result = decrypt(usrInp, key, IV);
+    if (usrInp === "") {
+      Toastify({
+        text: "Provide Phrase to Decrypt",
+        duration: 2000,
+        position: "center",
+      }).showToast();
+    }
+    if (result === '' && usrInp !== '') {
+      Toastify({
+        text: "Incorrect Secret Key",
+        duration: 2000,
+        position: "center",
+      }).showToast();
+      result = "";
+    }
   }
   output.innerHTML = result;
 });
 
-
-copyBtn.addEventListener('click', ()=>{
+copyBtn.addEventListener("click", () => {
   output.select();
   try {
-    document.execCommand('copy')
+    document.execCommand("copy");
     Toastify({
       text: "Copied phrase to clipboard",
       duration: 2000,
-      position: "center"
-      }).showToast();      
+      position: "center",
+    }).showToast();
   } catch (error) {
     Toastify({
       text: error.message,
-      duration: 2000
-      }).showToast();
+      duration: 2000,
+    }).showToast();
   }
-})
+});
